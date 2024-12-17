@@ -5,7 +5,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>this is the layour for all pages
+        {children}
+      </body>
     </html>
   );
 }
