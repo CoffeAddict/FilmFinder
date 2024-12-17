@@ -7,6 +7,7 @@ export default function GET(
   res.status(200).json(movies)
 }
 
+// TODO add real API data
 const movies: Record<string, any> = {
   results: [
     'movie1',
