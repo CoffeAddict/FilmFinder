@@ -12,10 +12,10 @@ const {
  * @export
  * @return {*}  {Promise<PaginatedMovies>}
  */
-export async function getMovies (): Promise<PaginatedMovies> {
+export async function getMovies (): Promise<PaginatedMovies | undefined> {
     try {
         // TODO implement fetching data from API
-        const resp = await fetch(`${API_BASE_URL}/movies`, {...serviceConfig})
+        const resp = await fetch(`${API_BASE_URL}/discover/movie`, {...serviceConfig})
 
         if (!resp.ok) throw new Error('Failed to get movies')
 
@@ -35,7 +35,7 @@ export async function getMovies (): Promise<PaginatedMovies> {
  * @param {MovieSearchParams} params
  * @return {*} Movie[]
  */
-export async function searchMovies (params: MovieSearchParams): Promise<Movie[]> {
+export async function searchMovies (params: MovieSearchParams): Promise<Movie[] | undefined> {
     try {
 
         const queryParams = new URLSearchParams(formatObjectForParams(params))
@@ -62,7 +62,7 @@ export async function searchMovies (params: MovieSearchParams): Promise<Movie[]>
  * @param {string} movieId
  * @return {*} Movie
  */
-export async function getMovieDetails (movieId: string): Promise<MovieDetails> {
+export async function getMovieDetails (movieId: string): Promise<MovieDetails | undefined> {
     try {
 
         // TODO implement fetching data from API
