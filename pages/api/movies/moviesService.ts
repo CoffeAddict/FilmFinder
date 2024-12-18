@@ -1,5 +1,5 @@
-import { formatObjectForParams } from '../../utils/helpers';
-import serviceConfig from './config'
+import { formatObjectForParams } from '../../../utils/helpers';
+import serviceConfig from '../config'
 
 const {
     API_BASE_URL
@@ -14,12 +14,16 @@ const {
  */
 export async function getMovies (): Promise<PaginatedMovies | undefined> {
     try {
+        console.log('API_BASE_URL', API_BASE_URL);
+
         // TODO implement fetching data from API
         const resp = await fetch(`${API_BASE_URL}/discover/movie`, {...serviceConfig})
 
         if (!resp.ok) throw new Error('Failed to get movies')
 
         const data = await resp.json()
+
+        console.log("👽 ~ getMovies ~ data:", data)
         // TODO format data response
 
         return data
