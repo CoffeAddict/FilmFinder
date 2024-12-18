@@ -23,3 +23,22 @@ export function formatMovies (data: any): PaginatedMovies {
         })
     }
 }
+
+export function formatMovie (data: any): Movie {
+    return {
+        adult: data.adult || false,
+        backdrop_path: data.backdrop_path || '',
+        genres: data.genres || [],
+        id: data.id || 0,
+        original_language: data.original_language || '',
+        original_title: data.original_title || '',
+        overview: data.overview || '',
+        popularity: data.popularity || 0,
+        poster_path: data.poster_path || '',
+        release_date: data.release_date || '',
+        title: data.title || '',
+        video: data.video || false,
+        vote_average: data.vote_average || 0,
+        vote_count: data.vote_count || 0,
+    }
+}
