@@ -8,9 +8,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>this is the layour for all pages
-        {/* Create header component */}
+        {/* TODO: Create header component */}
         {children}
-        {/* Create footer component */}
+        {/* TODO: Create footer component */}
       </body>
     </html>
   );

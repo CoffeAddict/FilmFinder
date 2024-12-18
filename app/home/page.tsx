@@ -9,5 +9,10 @@ export default function Home() {
             .then(data => console.log(data))
     }, []);
 
-    return <h1 className="text-3xl">this is the homepage</h1>;
+    return <h1 className="text-3xl">
+        {/* TODO: Create hero component with search funciont */}
+        {/* TODO Create popeular movies list */}
+        {/* TODO Create account form */}
+        {/* TODO Create movie details modal */}
+    </h1>;
 }
