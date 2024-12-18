@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import serviceConfig from '../config';
-import moviesMock from './movies-mock.json';
+import searchMock from './search-mock.json';
 import { formatMovies } from '../../../utils/formatters/moviesFormatter';
 
 const {
@@ -9,14 +9,9 @@ const {
     USE_MOCKS
 } =  process.env;
 
-type ResponseError = {
-    message: string
-    error?: string
-}
-
 /**
- * Get movies list
- * Reference: https://developer.themoviedb.org/reference/discover-movie
+ * Search movies
+ * Reference: https://developer.themoviedb.org/reference/search-movie
  *
  * @export
  * @param {NextApiRequest} req
@@ -25,9 +20,10 @@ type ResponseError = {
 export default function handler(req: NextApiRequest, res: NextApiResponse<PaginatedMovies | ResponseError>) {
     switch (req.method) {
         case 'GET':
+            console.log(USE_MOCKS);
 
-            if (USE_MOCKS && moviesMock) {
-                res.status(200).json(moviesMock as unknown as PaginatedMovies)
+            if (USE_MOCKS && searchMock) {
+                res.status(200).json(searchMock as unknown as PaginatedMovies)
                 return
             }
 
@@ -39,9 +35,15 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Pagina
             const query = req.query as Record<string, string>;
             const queryParams = new URLSearchParams(query);
 
+            // Required query params
+            if (queryParams.get('query') == undefined) {
+                res.status(422).end({ message: 'query is required' })
+                return
+            }
+
             queryParams.append('api_key', API_KEY)
 
-            const API_URL = `${API_BASE_URL}/discover/movie?${queryParams}`
+            const API_URL = `${API_BASE_URL}/search/movie?${queryParams}`
 
             fetch(API_URL, {...serviceConfig})
                 .then(resp => resp.json())
@@ -49,7 +51,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Pagina
                     const formattedResponse = formatMovies(data)
                     res.status(200).json(formattedResponse)
                 })
-                .catch(error => res.status(500).json({ message: 'Failed to fetch movies', error }))
+                .catch(error => res.status(500).json({ message: 'Failed to search movies', error }))
             break;
 
         default:
