@@ -31,6 +31,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     const emitEvent = (searchQuery: string) => onSearch(searchQuery);
 
     useEffect(() => {
+        console.log("👽 ~ useEffect")
         // Get the search term from the URL on page load
         const query = searchParams?.get('q');
         if (query) emitEvent(query);
