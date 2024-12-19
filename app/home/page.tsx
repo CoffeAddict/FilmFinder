@@ -1,5 +1,6 @@
 'use client';
 
+import React, { Suspense } from 'react';
 import SearchBar from '../components/SearchBar';
 
 export default function Home() {
@@ -7,12 +8,13 @@ export default function Home() {
         console.log("👽 ~ handleSearch ~ searchQuery:", searchQuery)
     };
 
-    return <div>
-        <SearchBar onSearch={handleSearch} />
-
-    </div>;
-    {/* TODO Create popular movies list */}
-    {/* TODO Create movie details modal */}
+    return (
+        <div>
+            <Suspense fallback={<div>Loading...</div>}>
+                <SearchBar onSearch={handleSearch} />
+            </Suspense>
+        </div>
+    );
 }
 
 //     fetch('/api/search')
@@ -22,4 +24,6 @@ export default function Home() {
 {/* TODO: Create hero component with search function */}
 {/* TODO Create popular movies list */}
 {/* TODO Create account form */}
+{/* TODO Create movie details modal */}
+{/* TODO Create popular movies list */}
 {/* TODO Create movie details modal */}
