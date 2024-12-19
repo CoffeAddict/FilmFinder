@@ -1,5 +1,8 @@
 import '../styles/global.scss'
 
+import Header from './components/Header';
+import Footer from './components/Footer';
+
 export default function RootLayout({
   children,
 }: {
@@ -7,10 +10,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>this is the layour for all pages
-        {/* TODO: Create header component */}
-        {children}
-        {/* TODO: Create footer component */}
+      <body className='bg-slate-800'>
+        <Header/>
+          {children}
+        <Footer/>
       </body>
     </html>
   );
