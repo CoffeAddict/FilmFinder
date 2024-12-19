@@ -31,14 +31,14 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     const emitEvent = (searchQuery: string) => onSearch(searchQuery);
 
     useEffect(() => {
-        // Prevent the search term from being updated if it hasn't changed
-        if (searchTerm === previousSearchTerm) return
-        setPreviousSearchTerm(searchTerm);
-
         // Get the search term from the URL on page load
         const query = searchParams?.get('q');
         if (query) emitEvent(query);
-    }, [searchParams]);
+
+        // Prevent the search term from being updated if it hasn't changed
+        if (searchTerm === previousSearchTerm) return
+        setPreviousSearchTerm(searchTerm);
+    }, []);
 
     return (
         <div>
