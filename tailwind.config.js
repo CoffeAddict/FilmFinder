@@ -5,7 +5,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}'  // Includes all components
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-bg': 'url(/images/hero-background.png)',
+      },
+    },
   },
   plugins: [],
 }

@@ -53,8 +53,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Movie 
 
             const API_URL = `${API_BASE_URL}/movie/${movieId}?${queryParams}&language=en-US`
 
-            console.log('API_URL', API_URL);
-
             fetch(API_URL, {...serviceConfig})
                 .then(resp => resp.json())
                 .then(data => {

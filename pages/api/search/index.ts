@@ -20,8 +20,6 @@ const {
 export default function handler(req: NextApiRequest, res: NextApiResponse<PaginatedMovies | ResponseError>) {
     switch (req.method) {
         case 'GET':
-            console.log(USE_MOCKS);
-
             if (USE_MOCKS) {
                 res.status(200).json(searchMock as unknown as PaginatedMovies)
                 return
