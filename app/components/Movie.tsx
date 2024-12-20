@@ -20,7 +20,7 @@ const MovieList: React.FC<MovieProps> = ({ movie }) => {
             <Link href={`/movie/${movie.id}`}>
                 <Image
                     className='w-full rounded-md mb-3'
-                    src={`${process.env.NEXT_PUBLIC_MOVIE_IMG_BASE_URL}/w200/${movie.poster_path}`}
+                    src={`${process.env.NEXT_PUBLIC_MOVIE_IMG_BASE_URL}/w500/${movie.poster_path}`}
                     alt={movie.title}
                     width={200}
                     height={300}/>
