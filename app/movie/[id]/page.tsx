@@ -1,7 +1,5 @@
 import React from 'react';
-import { redirect } from "next/navigation";
 import Image from 'next/image'
-import Loading from '../../components/Loading';
 import Link from 'next/link';
 import Chip from '../../components/Chip';
 
@@ -16,7 +14,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
     ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api`
     : 'http://localhost:3000/api'; // fallback for local development
 
-    const { id } = await params;
+    const { id } = params;
 
     const response = await fetch(`${apiURL}/movie/${id}`);
     const data = await response.json();
