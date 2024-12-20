@@ -16,8 +16,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     const [previousSearchTerm, setPreviousSearchTerm] = useState(searchParams?.get('q') || '');
 
     const searchBarClasses = [
-        'py-4 px-8 rounded-full gap-4 flex transition-all duration-300',
-        formFocused ? 'bg-transparent border-white border-[1px] text-white' : 'bg-white text-black'
+        'py-4 px-8 rounded-full gap-4 flex transition-all duration-300 border-white border-[1px]',
+        formFocused ? 'bg-transparent text-white' : 'bg-white text-black'
     ].join(' ').trim();
 
     // Handle the search event on form submit
@@ -51,7 +51,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
                     value={searchTerm}
                     onFocus={(e) => setFormFocused(true)}
                     onBlur={(e) => setFormFocused(false)}
-                    onChange={(e) => setSearchTerm(e.target.value.trim())}
+                    onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="Lord of the Rings..."
                 />
                 <button

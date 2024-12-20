@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image'
 import Link from 'next/link';
+import Chip from './Chip';
 
 interface MovieProps {
     movie: Movie;
@@ -21,11 +22,13 @@ const MovieList: React.FC<MovieProps> = ({ movie }) => {
                 target='_blank'>
                 <Image
                     className='w-full rounded-md mb-3'
-                    src={process.env.NEXT_PUBLIC_MOVIE_IMG_BASE_URL + movie.poster_path}
+                    src={`${process.env.NEXT_PUBLIC_MOVIE_IMG_BASE_URL}/w200/${movie.poster_path}`}
                     alt={movie.title}
                     width={200}
                     height={300}/>
-                <span className={ratinClasses}>{movie.vote_average.toFixed(1)}</span>
+                <Chip
+                    text={movie.vote_average.toFixed(1)}
+                    backgroundColor={ratinClasses}/>
                 <h2 className='text-normal text-white text-left'>{movie.title}</h2>
             </Link>
         </li>

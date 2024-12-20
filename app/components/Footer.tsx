@@ -7,44 +7,44 @@ const Footer = memo(function Footer() {
             <div className="flex flex-col gap-8">
                 <div className="flex flex-wrap gap-8">
                     <Link
-                        href="/"
+                        href="/home"
                         className="hover:text-slate-400 transition-colors duration-300">
                         About
                     </Link>
                     <Link
-                        href="/"
+                        href="/home"
                         className="hover:text-slate-400 transition-colors duration-300">
                         Jobs
                     </Link>
                     <Link
-                        href="/"
+                        href="/home"
                         className="hover:text-slate-400 transition-colors duration-300">
                         Press
                     </Link>
                     <Link
-                        href="/"
+                        href="/home"
                         className="hover:text-slate-400 transition-colors duration-300">
                         News
                     </Link>
                     <Link
-                        href="/"
+                        href="/home"
                         className="hover:text-slate-400 transition-colors duration-300">
                         Gift
                     </Link>
                 </div>
                 <div className="flex flex-wrap gap-8">
                     <Link
-                        href="/"
+                        href="/home"
                         className="hover:text-slate-400 transition-colors duration-300 font-normal">
                         Legal
                     </Link>
                     <Link
-                        href="/"
+                        href="/home"
                         className="hover:text-slate-400 transition-colors duration-300 font-normal">
                         Cookies
                     </Link>
                     <Link
-                        href="/"
+                        href="/home"
                         className="hover:text-slate-400 transition-colors duration-300 font-normal">
                         AdChoices
                     </Link>
@@ -53,12 +53,12 @@ const Footer = memo(function Footer() {
             <div className="flex flex-col gap-8">
                 <div className="flex gap-8 flex-wrap">
                     <Link
-                        href="/"
+                        href="/home"
                         className="hover:text-slate-400 transition-colors duration-300">
                         Facebook
                     </Link>
                     <Link
-                        href="/"
+                        href="/home"
                         className="hover:text-slate-400 transition-colors duration-300">
                         Twitter
                     </Link>
