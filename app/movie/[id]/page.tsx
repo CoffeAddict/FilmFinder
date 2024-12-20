@@ -4,9 +4,7 @@ import Link from 'next/link';
 import Chip from '../../components/Chip';
 
 interface MoviePageProps {
-    params: {
-        id: string;
-    };
+    params: Promise<any>;
 }
 
 export default async function MoviePage({ params }: MoviePageProps) {
@@ -14,7 +12,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
     ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api`
     : 'http://localhost:3000/api'; // fallback for local development
 
-    const { id } = params;
+    const { id } = await params;
 
     const response = await fetch(`${apiURL}/movie/${id}`);
     const data = await response.json();
