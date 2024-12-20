@@ -8,8 +8,8 @@ interface MoviePageProps {
 }
 
 export default async function MoviePage({ params }: MoviePageProps) {
-    const apiURL = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}/api`
+    const apiURL = process.env.APP_URL
+    ? `https://${process.env.APP_URL}/api`
     : 'http://localhost:3000/api'; // fallback for local development
 
     const { id } = await params;
