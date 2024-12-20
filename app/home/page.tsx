@@ -16,10 +16,13 @@ export default function Home() {
     });
 
     const handleSearch = (newSearchQuery: string) => {
+        console.log("👽 ~ handleSearch ~ :", newSearchQuery)
         setSearchQuery(newSearchQuery);
     };
 
     const getMovies = async (page?: number) => {
+        console.log("👽 ~ getMovies ~ :", searchQuery)
+
         setIsLoading(true);
 
         const params = new URLSearchParams();
@@ -48,7 +51,7 @@ export default function Home() {
     };
 
     useEffect(() => {
-        getMovies();
+        if (searchQuery || searchQuery === undefined) getMovies();
     }, [searchQuery])
 
     return (

@@ -18,8 +18,13 @@ export default async function MoviePage({ params }: MoviePageProps) {
     const data = await response.json();
 
     const movie = data
-    const releaseDate = new Date(movie.release_date);
-    const releaseYear = releaseDate.getFullYear();
+    let releaseYear;
+    if (movie.release_date == '') {
+        releaseYear = 'Not available';
+    } else {
+        const releaseDate = new Date(movie.release_date);
+        releaseYear = releaseDate.getFullYear();
+    }
     const ratingColor = movie.vote_average >= 7.5 ? 'bg-green-500' : movie.vote_average >= 4 ? 'bg-yellow-500' : 'bg-red-500';
 
     return (
