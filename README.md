@@ -1,25 +1,92 @@
-# Film Finder
+# FilmFinder Next.JS App
 
-This example allows you to get started with `next dev --turbo` quicky.
+A Next.js application that interacts with the TMDB API to display Movies data. This app provides users with a responsive, user-friendly interface for browsing movies details and searching by name.
 
-## Deploy your own
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-turbopack&project-name=with-turbopack&repository-name=with-turbopack)
 
-## How to use
+#### Demo
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+A live demo is available at [arodriguez-filmfinder.vercel.app](https://arodriguez-filmfinder.vercel.app/)
 
+
+##### Features
+- **Movie Search**: Search for any movie by name.
+- **Detailed Information**: View individual movie details such as genres, released year, etc.
+- **Responsive Design**: Desktop-first approach for smooth viewing on all devices.
+- **Lazy Loading**: Loads data incrementally for efficient performance.
+
+##### Technologies Used
+- **Next JS**: JavaScript framework for building UI.
+- **Turbopack**: Development environment for fast builds and optimized bundles.
+- **Fetch API**: For handling API requests.
+- **Tailwind CSS**: Utility-first CSS framework for responsive design.
+
+> **Note**: You’ll need Node.js 16+ to run this project.
+
+<br/>
+
+#### Installation
+
+##### 1. Clone the repository:
 ```bash
-npx create-next-app --example with-turbopack with-turbopack-app
+git clone https://github.com/CoffeAddict/FilmFinder.git
+cd filmfinder
 ```
 
+##### 2. Install dependencies:
 ```bash
-yarn create next-app --example with-turbopack with-turbopack-app
+npm install
 ```
 
-```bash
-pnpm create next-app --example with-turbopack with-turbopack-app
+##### 3. Environment Variables
+To connect to the TMDB API, create a .env file at the root of the project with the following:
+```env
+API_BASE_URL=your API URL
+API_KEY=your API key
+NEXT_PUBLIC_MOVIE_IMG_BASE_URL=https://image.tmdb.org/t/p
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+##### 4. Start the development server
+```bash
+npm run dev
+```
+<br/>
+
+##### Project Structure
+```
+├── public/
+│   └── favicon.ico         # App favicon
+│   └── images              # App images
+├── styles/                 # Style files
+├── types/                  # Typescript files
+├── utils/                  # Utility functions
+├── app/
+│   ├── components/         # App components
+│   ├── home/               # Homepage
+│   ├── layout.tsx          # Layout component
+│   ├── movie/              # Movie detail page
+│   ├── page.tsx            # Default page component
+├── pages/
+│   ├── api/                # Internal API endpoints
+│   ├── components/         # Reusable components
+└── README.md               # Project documentation
+```
+
+<br/>
+
+#### API Endpoints
+
+This app uses the TMDB v3, you can check the docs [here](https://developer.themoviedb.org/reference/search-movie)
+
+<br/>
+
+#### Build and Deployment
+```bash
+npm run build
+```
+
+<br/>
+
+### Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the GitHub repository.
