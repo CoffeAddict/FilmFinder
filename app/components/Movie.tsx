@@ -17,9 +17,7 @@ const MovieList: React.FC<MovieProps> = ({ movie }) => {
 
     return (
         <li className='transition-all duration-300 hover:scale-105 drop-shadow-sm hover:drop-shadow-2xl'>
-            <Link
-                href={`/movie/${movie.id}`}
-                target='_blank'>
+            <Link href={`/movie/${movie.id}`}>
                 <Image
                     className='w-full rounded-md mb-3'
                     src={`${process.env.NEXT_PUBLIC_MOVIE_IMG_BASE_URL}/w200/${movie.poster_path}`}
