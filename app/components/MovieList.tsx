@@ -1,5 +1,6 @@
 import React from 'react';
 import Movie from './Movie';
+import FirstMovie from './FirstMovie';
 
 interface MovieListProps {
     paginatedMovies: PaginatedMovies;
@@ -10,13 +11,19 @@ const MovieList: React.FC<MovieListProps> = ({ paginatedMovies, goToPage }) => {
 
     const emitEvent = (page: number) => goToPage(page);
 
+    const firstMovieList = paginatedMovies.results[0];
+    const restMovieList = { results: paginatedMovies.results.slice(1)};
+
     return (
         <div className='container'>
             {paginatedMovies.total_results != 0 &&
                 <div className='flex flex-col items-center px-4'>
+                    <section className='w-full'>
+                        <FirstMovie movie={firstMovieList}/>
+                    </section>
                     <ul className='w-full gap-x-8 gap-y-10 mb-8 grid grid-cols-[repeat(auto-fill,minmax(175px,1fr))]'>
-                        {paginatedMovies.results.map(movie => (
-                            <Movie key={movie.id} movie={movie}/>
+                        {restMovieList.results.map((movie, index) => (
+                            <Movie  key={movie.id} movie={movie}/>
                         ))}
                     </ul>
 
