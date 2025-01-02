@@ -31,7 +31,7 @@ const FirstMovie: React.FC<MovieProps> = ({ movie }) => {
                 className='relative flex gap-8 mr-auto'>
                 <div>
                     <Image
-                        className='w-full rounded-md mb-3'
+                        className='rounded-md mb-3 w-[300px] min-w-[300px]'
                         src={`${process.env.NEXT_PUBLIC_MOVIE_IMG_BASE_URL}/w500/${movie.poster_path}`}
                         alt={movie.title}
                         width={200}
@@ -45,7 +45,7 @@ const FirstMovie: React.FC<MovieProps> = ({ movie }) => {
                     <Chip
                         text={releaseYear}
                         backgroundColor={'bg-blue-500 w-fit'}/>
-                    <p className='text-white'>{movie.overview}</p>
+                    <p className='text-white max-w-[50%]'>{movie.overview}</p>
                 </div>
             </Link>
         </div>
